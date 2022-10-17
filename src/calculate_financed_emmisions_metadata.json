@@ -1,5 +1,5 @@
 {
   key:"calculate_financed_emmisions",
   name:"Calculate financed emissions",
-  description "Calculate financed emissions for Pre-provision Net Revenue (PPNR)"
+  description: "Calculate financed emissions for Pre-provision Net Revenue (PPNR)"
 }
