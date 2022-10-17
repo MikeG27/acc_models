@@ -58,7 +58,9 @@ class OperatingCostsDataModel(trac.TracModel):
         sales_and_marketing_costs = ctx.get_pandas_table("sales_and_marketing_costs")
         corporate_centre_costs = ctx.get_pandas_table("corporate_centre_costs")
 
-        operating_costs = corporate_centre_costs
+
+        operating_costs = processing_costs.rename(columns={"it_delivery_costs":"staff_costs",
+                                                           "employee_costs":"other_expenses"})
         ctx.put_pandas_table("operating_costs", operating_costs)
 
 if __name__ == "__main__":
