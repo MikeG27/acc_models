@@ -19,7 +19,7 @@ import pandas as pd
 import tracdap.rt.api as trac
 import schemas as schemas
 
-class EarningAssetsDataModel(trac.TracModel):
+class NetInterestIncomeDataModel(trac.TracModel):
 
     def define_parameters(self) -> tp.Dict[str, trac.ModelParameter]:
 
@@ -33,24 +33,28 @@ class EarningAssetsDataModel(trac.TracModel):
                    )
 
     def define_inputs(self) -> tp.Dict[str, trac.ModelInputSchema]:
-        earning_assets = trac.load_schema(schemas, "interest_earning_assets.csv")
-        return {"interest_earning_assets": trac.ModelInputSchema(earning_assets)}
+        earning_assets = trac.load_schema(schemas, "average_interest_earning_assets.csv")
+        net_interest_margin = trac.load_schema(schemas, "net_interest_margin.csv")
+        return {"average_interest_earning_assets": trac.ModelInputSchema(earning_assets),
+                "net_interest_margin": trac.ModelInputSchema(net_interest_margin)}
 
     def define_outputs(self) -> tp.Dict[str, trac.ModelOutputSchema]:
-        emmisions = trac.load_schema(schemas, "financed_emmisions.csv")
-        return {"financed_emmisions": trac.ModelInputSchema(emmisions)}
+        net_interest_income = trac.load_schema(schemas, "net_interest_income.csv")
+        return {"net_interest_income": trac.ModelInputSchema(net_interest_income)}
 
     def run_model(self, ctx: trac.TracContext):
-        ctx.log().info("Financed_emmisions model is running...")
+        ctx.log().info("Net Interest Income model is running...")
 
         expected_base_rate = ctx.get_parameter("expected_base_rate")
         expected_employee_cost_change = ctx.get_parameter("expected_employee_cost_change")
 
-        earning_assets = ctx.get_pandas_table("interest_earning_assets")
+        #net_interest_margin = ctx.get_pandas_table("net_interest_margin")
+        earning_assets = ctx.get_pandas_table("average_interest_earning_assets")
+        
         # dummy computations
-        financed_emmisions = earning_assets.rename(columns={"average_balance":"financed_emmisions"})
-        ctx.put_pandas_table("financed_emmisions", financed_emmisions)
+        net_interest_income = earning_assets.rename(columns={"average_balance":"net_interest_income"})
+        ctx.put_pandas_table("net_interest_income", net_interest_income)
 
 if __name__ == "__main__":
     import tracdap.rt.launch as launch
-    launch.launch_model(EarningAssetsDataModel, "config/financed_emmisions.yaml", "config/sys_config.yaml")
+    launch.launch_model(NetInterestIncomeDataModel, "config/net_interest_income.yaml", "config/sys_config.yaml")
