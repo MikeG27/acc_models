@@ -7,7 +7,7 @@ job:
 
     inputs:
       investment_income: "inputs/investment_income.csv"
-      fees_and_commisions_income: "inputs/fees_and_commissions_income.csv"
+      fees_and_commissions_income: "inputs/fees_and_commissions_income.csv"
 
     outputs:
       non_interest_income: "outputs/non_interest_income.csv"
