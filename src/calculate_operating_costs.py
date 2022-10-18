@@ -24,12 +24,14 @@ class OperatingCostsDataModel(trac.TracModel):
     def define_parameters(self) -> tp.Dict[str, trac.ModelParameter]:
 
         return trac.define_parameters(
-            # to do
+
             trac.P("expected_base_rate", trac.FLOAT,
-                   label="expected base rate"),
+                   label="Expected base rate",
+                   default_value=1.0),
 
             trac.P("expected_employee_cost_change", trac.FLOAT,
-                   label="expected employee cost change")
+                   label="Expected employee cost change",
+                   default_value=0.0)
                    )
 
     def define_inputs(self) -> tp.Dict[str, trac.ModelInputSchema]:
