@@ -1,11 +1,11 @@
 field_name, field_type, label, categorical, business_key, format_code
-id, STRING, Customer account ID, false, true
-business_line, STRING, Customer account ID, false, true
-product_line, STRING, Customer account ID, false, true
-region, STRING, Customer account ID, false, true
-subregion, STRING, Customer account ID, false, true
-mortgage_type, STRING, Customer account ID, false, true
-direct_marketing_campaign_costs, DECIMAL, Customer account ID, false, false
-indirect_marketing_costs, DECIMAL, Customer account ID, false, false
-sales_commisions_costs, DECIMAL, Customer account ID, false, false
-employee_costs, DECIMAL, Customer account ID, false, false
+id, STRING, id, false, true
+business_line, STRING, business_line, false, true
+product_line, STRING, product_line, false, true
+region, STRING, region, false, true
+subregion, STRING, subregion, false, true
+mortgage_type, STRING, mortgage_type, false, true
+direct_marketing_campaign_costs, DECIMAL, direct_marketing_campaign_costs, false, false
+indirect_marketing_costs, DECIMAL, indirect_marketing_costs, false, false
+sales_commisions_costs, DECIMAL, sales_commisions_costs, false, false
+employee_costs, DECIMAL, employee_costs, false, false
