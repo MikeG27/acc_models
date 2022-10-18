@@ -5,4 +5,4 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-average_earner_interest_rate, DECIMAL, average_earner_interest_rate, false, false
+average_earner_interest_rate, FLOAT, average_earner_interest_rate, false, false

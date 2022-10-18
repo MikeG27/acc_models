@@ -5,4 +5,4 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-investment_income, DECIMAL, investment_income, false, false
+investment_income, FLOAT, investment_income, false, false

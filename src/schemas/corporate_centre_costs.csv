@@ -5,7 +5,7 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-it_compute_cost, DECIMAL, it_compute_cost, false, false
-it_infrastructure_cost, DECIMAL, it_infrastructure_cost, false, false
-physical_infrastructure_cost, DECIMAL, physical_infrastructure_cost, false, false
-employee_costs, DECIMAL, employee_costs, false, false
+it_compute_cost, FLOAT, it_compute_cost, false, false
+it_infrastructure_cost, FLOAT, it_infrastructure_cost, false, false
+physical_infrastructure_cost, FLOAT, physical_infrastructure_cost, false, false
+employee_costs, FLOAT, employee_costs, false, false

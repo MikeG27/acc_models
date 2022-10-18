@@ -5,4 +5,4 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-commissions_fees, DECIMAL, commissions_fees, false, false
+commissions_fees, FLOAT, commissions_fees, false, false

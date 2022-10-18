@@ -5,7 +5,7 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-direct_marketing_campaign_costs, DECIMAL, direct_marketing_campaign_costs, false, false
-indirect_marketing_costs, DECIMAL, indirect_marketing_costs, false, false
-sales_commisions_costs, DECIMAL, sales_commisions_costs, false, false
-employee_costs, DECIMAL, employee_costs, false, false
+direct_marketing_campaign_costs, FLOAT, direct_marketing_campaign_costs, false, false
+indirect_marketing_costs, FLOAT, indirect_marketing_costs, false, false
+sales_commisions_costs, FLOAT, sales_commisions_costs, false, false
+employee_costs, FLOAT, employee_costs, false, false
