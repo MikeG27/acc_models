@@ -5,4 +5,4 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-financed_emmisions, DECIMAL, financed_emmisions, false, false
+financed_emmisions, FLOAT, financed_emmisions, false, false

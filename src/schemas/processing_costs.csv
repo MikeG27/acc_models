@@ -5,5 +5,5 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-it_delivery_costs, DECIMAL, it_delivery_costs, false, false
-employee_costs, DECIMAL, employee_costs, false, false
+it_delivery_costs, FLOAT, it_delivery_costs, false, false
+employee_costs, FLOAT, employee_costs, false, false

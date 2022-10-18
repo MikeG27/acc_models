@@ -5,4 +5,4 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-average_balance, DECIMAL, average_balance, false, false
+average_balance, FLOAT, average_balance, false, false

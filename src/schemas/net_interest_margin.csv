@@ -5,4 +5,4 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-average_net_interest_margin, DECIMAL, average_net_interest_margin, false, false
+average_net_interest_margin, FLOAT, average_net_interest_margin, false, false
