@@ -19,6 +19,14 @@ import pandas as pd
 import tracdap.rt.api as trac
 import schemas as schemas
 
+def calculate_net_interest_margin(interest_paid_assets, interest_earned_assets):
+    average_funding_interest_rate = interest_paid_assets["average_funding_interest_rate"]
+    average_earner_interest_rate =  interest_earned_assets["average_earner_interest_rate"]
+    net_interest_margin = interest_earned_assets.copy()
+    net_interest_margin["average_net_interest_margin"] = average_funding_interest_rate - average_earner_interest_rate + 0.25
+    net_interest_margin = net_interest_margin.drop("average_earner_interest_rate", axis=1)
+    return net_interest_margin
+
 class NetInterestMarginDataModel(trac.TracModel):
 
     def define_parameters(self) -> tp.Dict[str, trac.ModelParameter]:
@@ -54,7 +62,7 @@ class NetInterestMarginDataModel(trac.TracModel):
         interest_earned_assets = ctx.get_pandas_table("interest_earned_assets")
 
         # dummy computations
-        net_interest_margin = interest_paid_assets.rename(columns={"average_funding_interest_rate":"average_net_interest_margin"})
+        net_interest_margin = calculate_net_interest_margin(interest_paid_assets,interest_earned_assets)
         ctx.put_pandas_table("net_interest_margin", net_interest_margin)
 
 if __name__ == "__main__":
