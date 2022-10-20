@@ -19,6 +19,15 @@ import pandas as pd
 import tracdap.rt.api as trac
 import schemas as schemas
 
+
+def calculate_net_interest_income(net_interest_margin, earning_assets):
+    average_balance = earning_assets["average_balance"]
+    average_net_interest_margin = net_interest_margin["average_net_interest_margin"]
+    net_interest_income = net_interest_margin.copy()
+    net_interest_income = net_interest_income.drop("average_net_interest_margin", axis=1)
+    net_interest_income["net_interest_income"] = average_balance * average_net_interest_margin * 1.83/1000
+    return net_interest_income
+
 class NetInterestIncomeDataModel(trac.TracModel):
 
     def define_parameters(self) -> tp.Dict[str, trac.ModelParameter]:
@@ -50,11 +59,11 @@ class NetInterestIncomeDataModel(trac.TracModel):
         expected_base_rate = ctx.get_parameter("expected_base_rate")
         expected_employee_cost_change = ctx.get_parameter("expected_employee_cost_change")
 
-        #net_interest_margin = ctx.get_pandas_table("net_interest_margin")
+        net_interest_margin = ctx.get_pandas_table("net_interest_margin")
         earning_assets = ctx.get_pandas_table("average_interest_earning_assets")
         
         # dummy computations
-        net_interest_income = earning_assets.rename(columns={"average_balance":"net_interest_income"})
+        net_interest_income = calculate_net_interest_income(net_interest_margin, earning_assets)
         ctx.put_pandas_table("net_interest_income", net_interest_income)
 
 if __name__ == "__main__":
