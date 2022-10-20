@@ -1,4 +1,4 @@
-id,year,business_line,product_line,loan_type,region,commissions_fees,early_termination_early_payments,deliquency_fees
+id,date,business_line,product_line,loan_type,region,commissions_fees,early_termination_early_payments,deliquency_fees
 0,2017,Personal Banking,Loans,Mortgages,Denmark,35745425.14241436,4205344.134401689,2102672.0672008446
 1,2018,Personal Banking,Loans,Mortgages,Denmark,31756027.738571137,3736003.2633613106,1868001.6316806553
 2,2019,Personal Banking,Loans,Mortgages,Denmark,31947009.529180657,3758471.7093153717,1879235.8546576858

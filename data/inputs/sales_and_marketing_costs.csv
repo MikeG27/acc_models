@@ -1,4 +1,4 @@
-id,year,business_line,product_line,loan_type,region,employee_costs,direct_marketing_campaign_costs,indirect_marketing_costs,sales_commisions_costs
+id,date,business_line,product_line,loan_type,region,employee_costs,direct_marketing_campaign_costs,indirect_marketing_costs,sales_commisions_costs
 0,2017,Personal Banking,Loans,Mortgages,Denmark,-34354719.67149331,-32625054.030461144,-21750036.020307425,-40781317.53807643
 1,2018,Personal Banking,Loans,Mortgages,Denmark,-32065831.125509623,-27706526.362094443,-18471017.574729633,-34633157.95261805
 2,2019,Personal Banking,Loans,Mortgages,Denmark,-32269050.20202219,-28998082.18867994,-19332054.7924533,-36247602.73584993

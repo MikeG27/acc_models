@@ -1,4 +1,4 @@
-id,year,business_line,product_line,loan_type,region,average_balance,average_contracted_maturity,average_delinquent_balance,average_expected_contract_maturity,number_of_contracts,number_of_delinquent_contracts
+id,date,business_line,product_line,loan_type,region,average_balance,average_contracted_maturity,average_delinquent_balance,average_expected_contract_maturity,number_of_contracts,number_of_delinquent_contracts
 0,2017,Personal Banking,Loans,Mortgages,Denmark,43740617142857.13,62.35,218703085714.28568,59.855999999999995,145802.0571428571,729.0102857142857
 1,2018,Personal Banking,Loans,Mortgages,Denmark,40188034285714.28,69.832,200940171428.5714,57.36199999999999,133960.11428571428,669.8005714285714
 2,2019,Personal Banking,Loans,Mortgages,Denmark,38639931428571.42,64.844,193199657142.85715,57.36199999999999,128799.77142857143,643.9988571428572

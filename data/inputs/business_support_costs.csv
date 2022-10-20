@@ -1,4 +1,4 @@
-id,year,business_line,product_line,loan_type,region,consulting_cost
+id,date,business_line,product_line,loan_type,region,consulting_cost
 0,2017,Personal Banking,Loans,Mortgages,Denmark,-27187545.02538429
 1,2018,Personal Banking,Loans,Mortgages,Denmark,-23088771.96841204
 2,2019,Personal Banking,Loans,Mortgages,Denmark,-24165068.490566622

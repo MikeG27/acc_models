@@ -1,4 +1,4 @@
-id,year,business_line,product_line,loan_type,region,average_earner_interest_rate,average_penalty_interest_rate,average_subsidies_rate,interbank_rate
+id,date,business_line,product_line,loan_type,region,average_earner_interest_rate,average_penalty_interest_rate,average_subsidies_rate,interbank_rate
 0,2017,Personal Banking,Loans,Mortgages,Denmark,0.010599499999999998,0.024939999999999997,0.0003741,0.004987999999999999
 1,2018,Personal Banking,Loans,Mortgages,Denmark,0.010599499999999998,0.024939999999999997,0.0002494,0.004987999999999999
 2,2019,Personal Banking,Loans,Mortgages,Denmark,0.0081055,0.019951999999999998,0.00019952,0.0024939999999999997

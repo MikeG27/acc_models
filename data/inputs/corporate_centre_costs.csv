@@ -1,4 +1,4 @@
-id,year,business_line,product_line,loan_type,region,employee_costs,it_infrastructure_cost,it_compute_cost,physical_infrastructure_cost
+id,date,business_line,product_line,loan_type,region,employee_costs,it_infrastructure_cost,it_compute_cost,physical_infrastructure_cost
 0,2017,Personal Banking,Loans,Mortgages,Denmark,-34354719.67149331,-40781317.53807643,-27187545.02538429,-40781317.53807643
 1,2018,Personal Banking,Loans,Mortgages,Denmark,-32065831.125509623,-34633157.95261805,-23088771.96841204,-34633157.95261805
 2,2019,Personal Banking,Loans,Mortgages,Denmark,-32269050.20202219,-36247602.73584993,-24165068.490566622,-36247602.73584993
