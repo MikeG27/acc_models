@@ -6,3 +6,5 @@ region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
 commissions_fees, FLOAT, commissions_fees, false, false
+early_termination_early_payments, FLOAT, early_termination_early_payments, false, false
+deliquency_fees, FLOAT, deliquency_fees, false, false

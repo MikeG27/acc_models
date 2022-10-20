@@ -18,6 +18,21 @@ import typing as tp
 import pandas as pd
 import tracdap.rt.api as trac
 import schemas as schemas
+		
+
+def calculate_non_interest_income(fees_and_comission_income):
+    commissions_fees = fees_and_comission_income["commissions_fees"]
+    early_termination_fees = fees_and_comission_income["early_termination_early_payments"]
+    delinquency_fees  = fees_and_comission_income["deliquency_fees"]
+
+    non_interest_income = fees_and_comission_income.copy()
+    non_interest_income["net_fee_commissions_income"] = commissions_fees + early_termination_fees + delinquency_fees
+
+    drop_cols = ["commissions_fees","early_termination_early_payments", "deliquency_fees"]
+    non_interest_income = non_interest_income.drop(drop_cols, axis=1)
+    return non_interest_income
+
+
 
 class NonInterestIncomeDataModel(trac.TracModel):
 
@@ -50,11 +65,10 @@ class NonInterestIncomeDataModel(trac.TracModel):
         expected_base_rate = ctx.get_parameter("expected_base_rate")
         expected_employee_cost_change = ctx.get_parameter("expected_employee_cost_change")
 
-        #commissions_fees Net fee and commissions income
-
         investment_income = ctx.get_pandas_table("investment_income")
         fees_and_commisions_income = ctx.get_pandas_table("fees_and_commissions_income")
-        non_interest_income = fees_and_commisions_income.rename(columns={"commissions_fees": "net_fee_commissions_income"})
+
+        non_interest_income = calculate_non_interest_income(fees_and_commisions_income)
         ctx.put_pandas_table("non_interest_income", non_interest_income)
 
 if __name__ == "__main__":
