@@ -21,24 +21,21 @@ import tracdap.rt.api as trac
 import schemas as schemas
 
 
-def calculate_total_income(operating_costs):
-    # dummy calculations
-    total_income = operating_costs.rename(columns={"other_expenses":"net_interest_income","staff_costs":"net_fee_and_commissions_income"})
-    total_income["total_operating_income"] = 1.0
+def calculate_total_income(non_interest_income, operating_costs, net_interest_income):
+    total_income = net_interest_income.copy()
+    total_income["net_fee_commissions_income"] = non_interest_income["net_fee_commissions_income"]
+    total_income["total_operating_income"] = total_income["net_interest_income"] + total_income["net_fee_commissions_income"]
     return total_income
 
-def calculate_operating_profit(net_interest_income):
-    # dummy calculations
-    operating_profit = net_interest_income
-    operating_profit["net_fee_and_commissions_income"] = 1.0
-    operating_profit["net_fee_and_commissions_income"] = 1.0
-    operating_profit["staff_costs"] = 1.0
-    operating_profit["other_expenses"] = 1.0
-    operating_profit["total_operating_income"] = 1.0
-    operating_profit["total_operating_expenses"] = 1.0
-    operating_profit["profit_before_loan_losses"] = 1.0
+def calculate_operating_profit(non_interest_income, operating_costs, net_interest_income):
+    operating_profit = net_interest_income.copy()
+    operating_profit["net_fee_commissions_income"] = non_interest_income["net_fee_commissions_income"]
+    operating_profit["staff_costs"] = operating_costs["staff_costs"]
+    operating_profit["other_expenses"] = operating_costs["other_expenses"]
+    operating_profit["total_operating_income"] = operating_profit["net_interest_income"] + operating_profit["net_fee_commissions_income"]
+    operating_profit["total_operating_expenses"] = operating_profit["staff_costs"] + operating_profit["staff_costs"]
+    operating_profit["profit_before_loan_losses"] = operating_profit["total_operating_income"] + operating_profit["total_operating_expenses"]
     return operating_profit
-
 
 class OperatingCostsProfitModel(trac.TracModel):
 
@@ -81,8 +78,8 @@ class OperatingCostsProfitModel(trac.TracModel):
         operating_costs = ctx.get_pandas_table("operating_costs")
         net_interest_income = ctx.get_pandas_table("net_interest_income")
 
-        operating_profit = calculate_operating_profit(net_interest_income)
-        total_income = calculate_total_income(operating_costs)
+        operating_profit = calculate_operating_profit(non_interest_income, operating_costs, net_interest_income)
+        total_income = calculate_total_income(non_interest_income, operating_costs, net_interest_income)
 
         ctx.put_pandas_table("operating_profit", operating_profit)
         ctx.put_pandas_table("total_income", total_income)
