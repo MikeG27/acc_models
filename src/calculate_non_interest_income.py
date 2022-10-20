@@ -65,7 +65,7 @@ class NonInterestIncomeDataModel(trac.TracModel):
         expected_base_rate = ctx.get_parameter("expected_base_rate")
         expected_employee_cost_change = ctx.get_parameter("expected_employee_cost_change")
 
-        investment_income = ctx.get_pandas_table("investment_income")
+        #investment_income = ctx.get_pandas_table("investment_income")
         fees_and_commisions_income = ctx.get_pandas_table("fees_and_commissions_income")
 
         non_interest_income = calculate_non_interest_income(fees_and_commisions_income)

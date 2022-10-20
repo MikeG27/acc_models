@@ -3,8 +3,7 @@ id, STRING, id, false, true
 business_line, STRING, business_line, false, true
 product_line, STRING, product_line, false, true
 region, STRING, region, false, true
-subregion, STRING, subregion, false, true
-mortgage_type, STRING, mortgage_type, false, true
+loan_type, STRING, mortgage_type, false, true
 net_interest_income, FLOAT, other_expenses, false, false
 net_fee_commissions_income, FLOAT, other_expenses, false, false
 total_operating_income, FLOAT, other_expenses, false, false

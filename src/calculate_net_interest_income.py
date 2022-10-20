@@ -25,7 +25,7 @@ def calculate_net_interest_income(net_interest_margin, earning_assets):
     average_net_interest_margin = net_interest_margin["average_net_interest_margin"]
     net_interest_income = net_interest_margin.copy()
     net_interest_income = net_interest_income.drop("average_net_interest_margin", axis=1)
-    net_interest_income["net_interest_income"] = average_balance * average_net_interest_margin * 1.83/1000
+    net_interest_income["net_interest_income"] = average_balance * average_net_interest_margin #* 1.83/1000
     return net_interest_income
 
 class NetInterestIncomeDataModel(trac.TracModel):

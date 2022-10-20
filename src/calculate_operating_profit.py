@@ -81,6 +81,8 @@ class OperatingCostsProfitModel(trac.TracModel):
         operating_profit = calculate_operating_profit(non_interest_income, operating_costs, net_interest_income)
         total_income = calculate_total_income(non_interest_income, operating_costs, net_interest_income)
 
+        ctx.log().info(f"{total_income.head(1).T}")
+
         ctx.put_pandas_table("operating_profit", operating_profit)
         ctx.put_pandas_table("total_income", total_income)
 
