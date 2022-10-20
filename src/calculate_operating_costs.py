@@ -19,6 +19,23 @@ import pandas as pd
 import tracdap.rt.api as trac
 import schemas as schemas
 
+def calculate_operating_costs(corporate_centre_costs, sales_and_marketing_costs,
+                              processing_costs, business_support_costs):
+    
+    operating_costs = processing_costs.copy()
+    operating_costs["other_expenses"] = (corporate_centre_costs["it_compute_cost"] + 
+                                         corporate_centre_costs["it_infrastructure_cost"] + 
+                                         corporate_centre_costs["physical_infrastructure_cost"] + 
+                                         sales_and_marketing_costs["direct_marketing_campaign_costs"] + 
+                                         sales_and_marketing_costs["indirect_marketing_costs"] +
+                                         sales_and_marketing_costs["sales_commisions_costs"] +
+                                         processing_costs["it_delivery_costs"] + 
+                                         business_support_costs["consulting_cost"])
+
+    drop_cols = ["it_delivery_costs", "employee_costs"]
+    operating_costs = operating_costs.drop(drop_cols, axis=1)
+    return operating_costs
+
 class OperatingCostsDataModel(trac.TracModel):
 
     def define_parameters(self) -> tp.Dict[str, trac.ModelParameter]:
@@ -60,9 +77,9 @@ class OperatingCostsDataModel(trac.TracModel):
         sales_and_marketing_costs = ctx.get_pandas_table("sales_and_marketing_costs")
         corporate_centre_costs = ctx.get_pandas_table("corporate_centre_costs")
 
+        operating_costs = calculate_operating_costs(corporate_centre_costs, sales_and_marketing_costs,
+                                                    processing_costs, business_support_costs)
 
-        operating_costs = processing_costs.rename(columns={"it_delivery_costs":"staff_costs",
-                                                           "employee_costs":"other_expenses"})
         ctx.put_pandas_table("operating_costs", operating_costs)
 
 if __name__ == "__main__":

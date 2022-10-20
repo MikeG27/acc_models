@@ -5,5 +5,4 @@ product_line, STRING, product_line, false, true
 region, STRING, region, false, true
 subregion, STRING, subregion, false, true
 mortgage_type, STRING, mortgage_type, false, true
-staff_costs, FLOAT, staff_costs, false, false
 other_expenses, FLOAT, other_expenses, false, false
