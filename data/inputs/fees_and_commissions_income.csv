@@ -1,4 +1,4 @@
-id,business_line,product_line,region,subregion,mortgage_type,commissions_fees,early_termination_early_payments,fees_penalties_other_penalties
+id,business_line,product_line,region,subregion,mortgage_type,commissions_fees,early_termination_early_payments,deliquency_fees
 100775010,retail,mortgage,sweden,-,fixed_rate,1.0,1.0,1.0
 100775010,retail,mortgage,sweden,-,fixed_rate,1.0,1.0,1.0
 100775010,retail,mortgage,sweden,-,fixed_rate,1.0,1.0,1.0
