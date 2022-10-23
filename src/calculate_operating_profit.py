@@ -30,10 +30,10 @@ def calculate_total_income(non_interest_income, operating_costs, net_interest_in
 def calculate_operating_profit(non_interest_income, operating_costs, net_interest_income):
     operating_profit = net_interest_income.copy()
     operating_profit["net_fee_commissions_income"] = non_interest_income["net_fee_commissions_income"]
-    operating_profit["staff_costs"] = operating_costs["staff_costs"]
+    operating_profit["staff_cost"] = operating_costs["staff_cost"]
     operating_profit["other_expenses"] = operating_costs["other_expenses"]
     operating_profit["total_operating_income"] = operating_profit["net_interest_income"] + operating_profit["net_fee_commissions_income"]
-    operating_profit["total_operating_expenses"] = operating_profit["staff_costs"] + operating_profit["staff_costs"]
+    operating_profit["total_operating_expenses"] = operating_profit["staff_cost"] + operating_profit["staff_cost"]
     operating_profit["profit_before_loan_losses"] = operating_profit["total_operating_income"] + operating_profit["total_operating_expenses"]
     return operating_profit
 

@@ -30,18 +30,18 @@ def calculate_operating_costs(corporate_centre_costs, sales_and_marketing_costs,
     operating_costs["other_expenses"] = (corporate_centre_costs["it_compute_cost"] + 
                                          corporate_centre_costs["it_infrastructure_cost"] + 
                                          corporate_centre_costs["physical_infrastructure_cost"] + 
-                                         sales_and_marketing_costs["direct_marketing_campaign_costs"] + 
-                                         sales_and_marketing_costs["indirect_marketing_costs"] +
-                                         sales_and_marketing_costs["sales_commisions_costs"] +
-                                         processing_costs["it_delivery_costs"] + 
+                                         sales_and_marketing_costs["direct_marketing_campaign_cost"] + 
+                                         sales_and_marketing_costs["indirect_marketing_cost"] +
+                                         sales_and_marketing_costs["sales_commissions_cost"] +
+                                         processing_costs["it_delivery_cost"] + 
                                          business_support_costs["consulting_cost"])
 
 
-    operating_costs["staff_costs"] = (corporate_centre_costs["employee_costs"] + 
-                                      sales_and_marketing_costs["employee_costs"] + 
-                                      processing_costs["employee_costs"])
+    operating_costs["staff_cost"] = (corporate_centre_costs["employee_cost"] + 
+                                      sales_and_marketing_costs["employee_cost"] + 
+                                      processing_costs["employee_cost"])
 
-    drop_cols = ["it_delivery_costs", "employee_costs"]
+    drop_cols = ["it_delivery_cost", "employee_cost"]
     operating_costs = operating_costs.drop(drop_cols, axis=1)
     return operating_costs
 
